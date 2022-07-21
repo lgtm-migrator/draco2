@@ -461,8 +461,8 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#histogramm">
-   Histogramm
+  <a class="reference internal nav-link" href="#histogram">
+   Histogram
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -490,8 +490,8 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#histogramm">
-   Histogramm
+  <a class="reference internal nav-link" href="#histogram">
+   Histogram
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -522,9 +522,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<section id="histogramm">
-<h2>Histogramm<a class="headerlink" href="#histogramm" title="Permalink to this headline">#</a></h2>
-<p>In this example, we tell Draco to show a binned chart. A possible visualization is a tick plot but because the tick marks would overlap, Draco adds an addicional count encoding.</p>
+<section id="histogram">
+<h2>Histogram<a class="headerlink" href="#histogram" title="Permalink to this headline">#</a></h2>
+<p>In this example, we tell Draco to show a binned chart. A possible visualization is a tick plot but because the tick marks would overlap, Draco adds an additional count encoding.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../draco/asp/examples/histogram.lp&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -571,31 +571,19 @@ OUTPUT:
                                    &#39;channel&#39;: &#39;x&#39;,
                                    &#39;encoding_cardinality&#39;: 10,
                                    &#39;field&#39;: (&#39;f&#39;, 0),
-                                   &#39;scale_type&#39;: &#39;linear&#39;,
-                                   &#39;type&#39;: &#39;linear&#39;},
+                                   &#39;scale_type&#39;: &#39;linear&#39;},
                                   {&#39;aggregate&#39;: &#39;count&#39;,
                                    &#39;channel&#39;: &#39;y&#39;,
-                                   &#39;scale_type&#39;: &#39;linear&#39;,
-                                   &#39;type&#39;: &#39;linear&#39;,
-                                   &#39;zero&#39;: &#39;true&#39;}],
+                                   &#39;scale_type&#39;: &#39;linear&#39;}],
                      &#39;mark_channel_cont&#39;: &#39;y&#39;,
                      &#39;mark_channel_discrete_or_binned&#39;: &#39;x&#39;,
-                     &#39;mark_encoding_cont&#39;: (&#39;e&#39;, 1),
+                     &#39;mark_encoding_cont&#39;: ((&#39;m&#39;, 0), 0),
                      &#39;mark_encoding_discrete_or_binned&#39;: (&#39;e&#39;, 0),
-                     &#39;scale&#39;: (&#39;e&#39;, 0),
+                     &#39;scale&#39;: (&#39;s&#39;, ((&#39;m&#39;, 0), 0)),
                      &#39;type&#39;: &#39;bar&#39;,
                      &#39;x_cardinality&#39;: 10}],
-           &#39;scale&#39;: [{&#39;aggregate&#39;: &#39;count&#39;,
-                      &#39;channel&#39;: &#39;y&#39;,
-                      &#39;scale_type&#39;: &#39;linear&#39;,
-                      &#39;type&#39;: &#39;linear&#39;,
-                      &#39;zero&#39;: &#39;true&#39;},
-                     {&#39;binning&#39;: 10,
-                      &#39;channel&#39;: &#39;x&#39;,
-                      &#39;encoding_cardinality&#39;: 10,
-                      &#39;field&#39;: (&#39;f&#39;, 0),
-                      &#39;scale_type&#39;: &#39;linear&#39;,
-                      &#39;type&#39;: &#39;linear&#39;}]}]}
+           &#39;scale&#39;: [{&#39;channel&#39;: &#39;x&#39;, &#39;type&#39;: &#39;linear&#39;},
+                     {&#39;channel&#39;: &#39;y&#39;, &#39;type&#39;: &#39;linear&#39;, &#39;zero&#39;: &#39;true&#39;}]}]}
 VIOLATED PREFERENCES:
 defaultdict(&lt;class &#39;int&#39;&gt;,
             {&#39;aggregate&#39;: 1,
@@ -621,13 +609,13 @@ defaultdict(&lt;class &#39;int&#39;&gt;,
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../draco/asp/examples/scatter.lp&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">hist_spec</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">scatter_spec</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INPUT:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">hist_spec</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">scatter_spec</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;OUTPUT:&quot;</span><span class="p">)</span>
-<span class="n">model</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">complete_spec</span><span class="p">(</span><span class="n">hist_spec</span><span class="p">))</span>
+<span class="n">model</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">complete_spec</span><span class="p">(</span><span class="n">scatter_spec</span><span class="p">))</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">answer_set_to_dict</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">answer_set</span><span class="p">))</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;VIOLATED PREFERENCES:&quot;</span><span class="p">)</span>
@@ -639,23 +627,21 @@ defaultdict(&lt;class &#39;int&#39;&gt;,
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INPUT:
 attribute(number_rows,root,100).
 
-entity(field,root,(f,0)).
-attribute((field,name),(f,0),temperature).
-attribute((field,type),(f,0),number).
+entity(field,root,f0).
+attribute((field,name),f0,temperature).
+attribute((field,type),f0,number).
 
-entity(field,root,(f,1)).
-attribute((field,name),(f,1),precipitation).
-attribute((field,type),(f,1),number).
+entity(field,root,f1).
+attribute((field,name),f1,precipitation).
+attribute((field,type),f1,number).
 
-entity(view,root,(v,0)).
-entity(mark,(v,0),(m,0)).
-entity(encoding,(m,0),(e,0)).
-attribute((encoding,field),(e,0),(f,0)).
-entity(encoding,(m,0),(e,1)).
-attribute((encoding,field),(e,1),(f,1)).
+entity(view,root,v0).
 
-entity(scale,(v,0),(s,0)).
-entity(scale,(v,0),(s,1)).
+entity(mark,v0,m).
+entity(encoding,m,e0).
+attribute((encoding,field),e0,f0).
+entity(encoding,m,e1).
+attribute((encoding,field),e1,f1).
 
 #show entity/3.
 #show attribute/3.
@@ -666,34 +652,22 @@ OUTPUT:
  &#39;number_rows&#39;: 100,
  &#39;task&#39;: &#39;summary&#39;,
  &#39;view&#39;: [{&#39;mark&#39;: [{&#39;channel&#39;: &#39;y&#39;,
-                     &#39;encoding&#39;: [{&#39;channel&#39;: &#39;x&#39;,
-                                   &#39;field&#39;: (&#39;f&#39;, 0),
-                                   &#39;scale_type&#39;: &#39;linear&#39;,
-                                   &#39;type&#39;: &#39;linear&#39;,
-                                   &#39;zero&#39;: &#39;true&#39;},
-                                  {&#39;channel&#39;: &#39;y&#39;,
-                                   &#39;field&#39;: (&#39;f&#39;, 1),
-                                   &#39;scale_type&#39;: &#39;linear&#39;,
-                                   &#39;type&#39;: &#39;linear&#39;,
-                                   &#39;zero&#39;: &#39;true&#39;}],
+                     &#39;encoding&#39;: [{&#39;channel&#39;: &#39;y&#39;,
+                                   &#39;field&#39;: &#39;f0&#39;,
+                                   &#39;scale_type&#39;: &#39;linear&#39;},
+                                  {&#39;channel&#39;: &#39;x&#39;,
+                                   &#39;field&#39;: &#39;f1&#39;,
+                                   &#39;scale_type&#39;: &#39;linear&#39;}],
                      &#39;mark_channel_cont&#39;: &#39;y&#39;,
-                     &#39;mark_encoding_cont&#39;: (&#39;e&#39;, 1),
-                     &#39;scale&#39;: (&#39;e&#39;, 0),
+                     &#39;mark_encoding_cont&#39;: &#39;e1&#39;,
+                     &#39;scale&#39;: (&#39;s&#39;, &#39;e1&#39;),
                      &#39;type&#39;: &#39;point&#39;}],
-           &#39;scale&#39;: [{&#39;type&#39;: &#39;ordinal&#39;},
-                     {&#39;type&#39;: &#39;ordinal&#39;},
-                     {&#39;channel&#39;: &#39;y&#39;,
-                      &#39;field&#39;: (&#39;f&#39;, 1),
-                      &#39;scale_type&#39;: &#39;linear&#39;,
-                      &#39;type&#39;: &#39;linear&#39;,
-                      &#39;zero&#39;: &#39;true&#39;},
-                     {&#39;channel&#39;: &#39;x&#39;,
-                      &#39;field&#39;: (&#39;f&#39;, 0),
-                      &#39;scale_type&#39;: &#39;linear&#39;,
-                      &#39;type&#39;: &#39;linear&#39;,
-                      &#39;zero&#39;: &#39;true&#39;}]}]}
+           &#39;scale&#39;: [{&#39;channel&#39;: &#39;y&#39;, &#39;type&#39;: &#39;linear&#39;, &#39;zero&#39;: &#39;true&#39;},
+                     {&#39;channel&#39;: &#39;x&#39;, &#39;type&#39;: &#39;linear&#39;, &#39;zero&#39;: &#39;true&#39;}]}]}
 VIOLATED PREFERENCES:
-defaultdict(&lt;class &#39;int&#39;&gt;,
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>defaultdict(&lt;class &#39;int&#39;&gt;,
             {&#39;c_c_point&#39;: 1,
              &#39;encoding&#39;: 2,
              &#39;encoding_field&#39;: 2,
