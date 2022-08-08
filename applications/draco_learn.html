@@ -792,15 +792,15 @@ title="Print to PDF"
 <span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="p">),</span> <span class="s2">&quot;Feature names do not match.&quot;</span>
 
 <span class="nn">Input In [4],</span> in <span class="ni">pairs_to_vec</span><span class="nt">(specs)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">dfs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="k">for</span> <span class="n">example</span> <span class="ow">in</span> <span class="n">specs</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">neg_feature_vec</span> <span class="o">=</span> <span class="n">default_draco</span><span class="o">.</span><span class="n">count_preferences</span><span class="p">(</span>
+<span class="ne">----&gt; </span><span class="mi">8</span>     <span class="n">neg_feature_vec</span> <span class="o">=</span> <span class="n">default_draco</span><span class="o">.</span><span class="n">count_preferences</span><span class="p">(</span>
 <span class="g g-Whitespace">      </span><span class="mi">9</span>         <span class="n">example</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">example</span><span class="p">[</span><span class="s2">&quot;negative&quot;</span><span class="p">]</span>
 <span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">11</span>     <span class="n">pos_feature_vec</span> <span class="o">=</span> <span class="n">default_draco</span><span class="o">.</span><span class="n">count_preferences</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">pos_feature_vec</span> <span class="o">=</span> <span class="n">default_draco</span><span class="o">.</span><span class="n">count_preferences</span><span class="p">(</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span>         <span class="n">example</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">example</span><span class="p">[</span><span class="s2">&quot;positive&quot;</span><span class="p">]</span>
 <span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="k">assert</span> <span class="n">neg_feature_vec</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="k">assert</span> <span class="n">pos_feature_vec</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
 
 <span class="nn">File ~/work/draco2/draco2/draco/draco.py:146,</span> in <span class="ni">Draco.count_preferences</span><span class="nt">(self, spec)</span>
 <span class="g g-Whitespace">    </span><span class="mi">143</span> <span class="k">try</span><span class="p">:</span>
